@@ -10,14 +10,14 @@ use Illuminate\Notifications\Notification;
 class NewBrtNotification extends Notification
 {
     use Queueable;
-    public $message;
+    public  $reservedAmount;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($message)
+    public function __construct($reservedAmount)
     {
-        $this->message = $message;
+        $this->reservedAmount= $reservedAmount;
     }
 
     /**
@@ -49,7 +49,8 @@ class NewBrtNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'messages' => "Your deposit of {$this->message} was successful!",
+            'message' => "You just purchased {$this->reservedAmount}.",
+            'reserved_amount' => $this->reservedAmount
         ];
     }
 }

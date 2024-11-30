@@ -51,7 +51,7 @@ class BrtController extends Controller
     
         // Update the user record with the generated brt_code
         $user->update(['brt_code' => $brt_code]);
-        $user->notify(new NewBrtNotification("A new BRT has been created for you."));
+        $user->notify(new NewBrtNotification($brt->reserved_amount));
 
         broadcast(new BRTNotification("BRT {$brt->name} {$brt->reserved_amount} BLUME COIN [\$BLU] {$brt->reserved_amount}\$BLU created."));
 

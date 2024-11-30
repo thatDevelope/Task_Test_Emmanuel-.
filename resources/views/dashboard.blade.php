@@ -17,10 +17,11 @@
             <div id="notification-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
             <ul id="notification-list" class="divide-y divide-gray-200">
             @foreach(auth()->user()->unreadNotifications as $notification)
-                <li class="p-4 text-gray-600">
-                {{ $notification->data['messages'] ?? 'No message available' }}<!-- Adjust based on your notification structure -->
-                </li>
-            @endforeach
+        <li>
+            {{ $notification->data['message'] }}
+            <span>Reserved Amount: {{ $notification->data['reserved_amount'] }}</span>
+        </li>
+    @endforeach
         </ul>
             </div>
         </div>
