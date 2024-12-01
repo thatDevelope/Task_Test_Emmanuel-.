@@ -35,12 +35,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::get('/example', function () {
-//     return response()->json(['message' => 'Hello, world!']);
-// });
 
-Route::post('/brts', [BrtController::class, 'store'])->name('brt.store');
-Route::get('/brt', [BrtController::class, 'brt'])->name('brts.store');
+
 
 require __DIR__.'/auth.php';
 
@@ -52,10 +48,11 @@ Route::get('/example', function () {
 Route::put('/brtsu/{id}', [BrtController::class, 'update']);
 Route::delete('api/brtsd/{id}', [BrtController::class, 'destroy']);
 Route::put('api/brtsu/{id}', [BrtController::class, 'update']);
+Route::post('/brts', [BrtController::class, 'store'])->name('brt.store');
+Route::get('/brt', [BrtController::class, 'brt'])->name('brts.store');
 
-require __DIR__.'/api.php';
 
-require __DIR__.'/api.php';
+
 
 use App\Http\Controllers\AdminController;
 

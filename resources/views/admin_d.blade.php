@@ -28,11 +28,23 @@
             font-size: 2.5rem;
             color: #6c757d;
         }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Admin Analytics Dashboard</h1>
+        <div class="header-container mb-4">
+            <h1 class="text-center">Admin Analytics Dashboard</h1>
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+        
         <div class="row g-4">
             <!-- Total Users Card -->
             <div class="col-md-3">
@@ -88,24 +100,5 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Add your JS here -->
-    <script>
-        // Example: Fetching data dynamically (replace with your API endpoints or backend data)
-        document.addEventListener('DOMContentLoaded', function () {
-            // Dummy data for now
-            const dashboardData = {
-                totalUsers: 1240,
-                totalAdmins: 45,
-                revenue: 54321.75,
-                pendingTasks: 12
-            };
-
-            // Updating the card values
-            document.getElementById('total-users').innerText = dashboardData.totalUsers;
-            document.getElementById('total-admins').innerText = dashboardData.totalAdmins;
-            document.getElementById('revenue').innerText = `$${dashboardData.revenue.toLocaleString()}`;
-            document.getElementById('pending-tasks').innerText = dashboardData.pendingTasks;
-        });
-    </script>
 </body>
 </html>
